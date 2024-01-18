@@ -1,20 +1,15 @@
-number = int(input())
-if number != 0:
-    test = 1
-    while test <= number:
-        test *= 2
-    test = int(test / 2)
-    final = 0
-    while test != 1:
-        if number >= test:
-            number -= test
-            final += 1
-        final *= 10
-        test = int(test / 2)
-    if number == 1:
-        final += 1
-else:
-    final = 0
+number = float(input())
+number1 = int(number)
+number2 = number - number1
+final = ""
+final += bin(number1)[2:] + '.'
+test = number2
+while test - int(test) > 0:
+    number2 *= 2
+    number3 = int(number2)
+    final += str(number3)
+    number2 -= number3
+    test *= 10
 print(final)
 
 

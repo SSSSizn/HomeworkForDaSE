@@ -43,10 +43,39 @@ class LinkedList:
         return False
 
     # 改
-    def update(self, old, new):
+    def update(self, pos, new):
+        if not self.head:
+            return
         cur = self.head
+        temp = 0
         while cur:
-            if cur.data == old:
+            if temp == pos:
                 cur.data = new
                 return
             cur = cur.next
+            temp += 1
+
+    def display(self):
+        cur = self.head
+        while cur:
+            print(cur.data, end=" -> ")
+            cur = cur.next
+        print("None")
+
+
+if __name__ == "__main__":
+    linked_list = LinkedList()
+    linked_list.append(5)
+    linked_list.append(2)
+    linked_list.append(8)
+
+    linked_list.display()
+
+    linked_list.delete(2)
+    linked_list.display()
+
+    linked_list.update(1, 3)
+    linked_list.display()
+
+    print(linked_list.search(4))
+    print(linked_list.search(3))

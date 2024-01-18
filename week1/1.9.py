@@ -1,6 +1,7 @@
 L = [1, 2, 3, 4, 5]
-K = [0] * 5
-M = [0] * 5
+length = len(L)
+K = [0] * length
+M = [0] * length
 count = len(L)
 for i in range(1, count+1):
     K[i - 1] = L[count - i]

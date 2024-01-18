@@ -1,25 +1,26 @@
 import random
 import math
 
-# 找出函数近似最值
-s = 2
-h = 0.0000001  # 步长
-maxi = 0
-mini = 100
-while s <= 3:
-    new = s*s + 4*s*math.sin(math.radians(s))
-    if new > maxi:
-        maxi = new
-    if new < mini:
-        mini = new
-    s += h
-count = 0
-for i in range(10000):
-    x = random.uniform(2,3)
-    y = random.uniform(mini, maxi)
-    if x*x + 4*x*math.sin(math.radians(x)) <= y:
-        count += 1
-result = count/10000 * (maxi - mini)
-print(count)
+
+def f(x):
+    return x**2 + 4*x*math.sin(x)
+
+
+def monte_carlo_integration(times):
+    start = 2
+    end = 3
+    sum = 0
+
+    for _ in range(times):
+        x = random.uniform(start, end)
+        y = f(x)
+        sum += y
+
+    average = sum / times
+    result = (end - start) * average
+    return result
+
+
+times = 100000
+result = monte_carlo_integration(times)
 print(result)
-print(maxi, mini)

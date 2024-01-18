@@ -1,3 +1,5 @@
+import random
+
 c = 10
 g = c/2
 while g*g*g - c > 0.000001 or c - g*g*g > 0.000001:

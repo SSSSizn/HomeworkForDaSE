@@ -18,3 +18,5 @@ elif b > a:
         a = c
         c = b % a
     print("最大公约数为", b)
+elif a == b:
+    print("最大公约数为", b)
